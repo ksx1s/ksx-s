@@ -1642,10 +1642,10 @@ CreateClicker(SpiralStairsTP_Button)
 CreateClicker(SkyscraperTP_Button)
 CreateClicker(PoolTP_Button)
 
-CreateToggle(Invisible_Button)
-CreateToggle(CtrlClickTP_Button)
-CreateToggle(Flashback_Button)
-CreateToggle(feFlip_Button)
+CreateClicker(Invisible_Button)
+CreateClicker(CtrlClickTP_Button)
+CreateClicker(Flashback_Button)
+CreateClicker(feFlip_Button)
 
 CreateToggle(Fly_Button)
 CreateClicker(WalkSpeed_Button)
@@ -1852,47 +1852,54 @@ end)
 --KSX'S SECTION
 local InvisibleisActive = false
 Invisible_Button.MouseButton1Click:Connect(function()
-    ChangeToggleColor(Invisible_Button)
-    if Invisible_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
-        if not InvisibleisActive then
+	pcall(function()
+		if not InvisibleisActive then
             InvisibleisActive = true
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/Invisible'))()
-        end
-    end
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/Invisible'))()
+		end
+	end)
 end)
 
 local CtrlClickTPisActive = false
 CtrlClickTP_Button.MouseButton1Click:Connect(function()
-    ChangeToggleColor(CtrlClickTP_Button)
-    if CtrlClickTP_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
-        if not CtrlClickTPisActive then
+	pcall(function()
+		if not CtrlClickTPisActive then
             CtrlClickTPisActive = true
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/CtrlClickTP'))()
-        end
-    end
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/CtrlClickTP'))()
+		end
+    end)
 end)
 
 local FlashbackisActive = false
 Flashback_Button.MouseButton1Click:Connect(function()
-    ChangeToggleColor(Flashback_Button)
-    if Flashback_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
+	pcall(function()
         if not FlashbackisActive then
             FlashbackisActive = true
             loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/Flashback'))()
         end
-    end
+    end)
 end)
 
 local feFlipisActive = false
 feFlip_Button.MouseButton1Click:Connect(function()
-    ChangeToggleColor(feFlip_Button)
-    if feFlip_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
+	pcall(function()
         if not feFlipisActive then
             feFlipisActive = true
             loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/feFlip'))()
         end
-    end
+    end)
 end)
+
+-- local TemplateisActive = false
+-- Template_Button.MouseButton1Click:Connect(function()
+--     ChangeToggleColor(Template_Button)
+--     if Template_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(0, 255, 0) then
+--         if not TemplateisActive then
+--             TemplateisActive = true
+--             loadstring(game:HttpGet('https://raw.githubusercontent.com/ksx1s/ksx-s/refs/heads/main/Template'))()
+--         end
+--     end
+-- end)
 
 --CHARACTER SECTION
 WalkSpeed_Button.MouseButton1Click:Connect(function()
