@@ -1907,7 +1907,7 @@ WalkSpeed_Button.MouseButton1Click:Connect(function()
 		local Speed = WalkSpeed_Input.Text:gsub("%D", "")
 		if Speed == "" then
 			Speed = 100
-			SendNotify("ksx's Panel", "Velocidade atualizada para 100",5)
+			SendNotify("ksx's Panel", "Velocidade atualizada para 100.",5)
 		elseif tonumber(Speed) == 0 then
 			Speed = 16
 			SendNotify("ksx's Panel", "Velocidade atualizada para o padrão.",5)
