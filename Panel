@@ -1906,8 +1906,8 @@ WalkSpeed_Button.MouseButton1Click:Connect(function()
 	pcall(function()
 		local Speed = WalkSpeed_Input.Text:gsub("%D", "")
 		if Speed == "" then
-			Speed = 100
-			SendNotify("ksx's Panel", "Velocidade atualizada para 100.",5)
+			Speed = 50
+			SendNotify("ksx's Panel", "Velocidade atualizada.",5)
 		elseif tonumber(Speed) == 0 then
 			Speed = 16
 			SendNotify("ksx's Panel", "Velocidade atualizada para o padrão.",5)
@@ -1934,9 +1934,14 @@ FlySpeed_Button.MouseButton1Click:Connect(function()
 		local Speed = FlySpeed_Input.Text:gsub("%D", "")
 		if Speed == "" then
 			Speed = 50
+			SendNotify("ksx's Panel","Velocidade de voo atualizada.",5)
+		elseif tonumber(Speed) == 0 then
+			Speed = 25
+			SendNotify("ksx's Panel", "Velocidade de voo atualizada para o padrão.",5)
+		else
+			SendNotify("ksx's Panel", "Velocidade de voo atualizada para "..Speed..".",5)
 		end
 		FlySpeed = tonumber(Speed)
-		SendNotify("ksx's Panel","Velocidade de voo atualizada.",5)
 	end)
 end)
 
