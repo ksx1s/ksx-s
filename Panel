@@ -1724,7 +1724,7 @@ end
 local function UpdateTarget(player)
 	pcall(function()
 		if table.find(ForceWhitelist,player.UserId) then
-			SendNotify("ksx's Panel","You cant target this player: @"..player.Name.." / "..player.DisplayName,5)
+			SendNotify("ksx's Panel","Você não pode mirar neste jogador: @"..player.Name.." / "..player.DisplayName,5)
 			player = nil
 		end
 	end)
@@ -1845,7 +1845,7 @@ end)
 CMDBar.FocusLost:Connect(function()
 	command = CMDBar.Text
 	Players:Chat(command)
-	SendNotify("ksx's Panel",("Executed "..command),5)
+	SendNotify("ksx's Panel",("Executado "..command),5)
 	CMDBar.Text = ""
 end)
 
@@ -1907,11 +1907,12 @@ WalkSpeed_Button.MouseButton1Click:Connect(function()
 		local Speed = WalkSpeed_Input.Text:gsub("%D", "")
 		if Speed == "" then
 			Speed = 100
+			SendNotify("ksx's Panel", "Velocidade atualizada para 100",5)
 		elseif tonumber(Speed) == 0 then
 			Speed = 16
-			SendNotify("ksx's Panel", "Velocidade voltou para o padrão.", 5)
+			SendNotify("ksx's Panel", "Velocidade atualizada para o padrão.",5)
 		else
-			SendNotify("ksx's Panel", "Velocidade atualizada para " .. Speed .. ".", 5)
+			SendNotify("ksx's Panel", "Velocidade atualizada para "..Speed..".",5)
 		end
 		plr.Character.Humanoid.WalkSpeed = tonumber(Speed)
 	end)
@@ -1924,7 +1925,7 @@ JumpPower_Button.MouseButton1Click:Connect(function()
 			Power = 50
 		end
 		plr.Character.Humanoid.JumpPower = tonumber(Power)
-		SendNotify("ksx's Panel","Jump power updated.",5)
+		SendNotify("ksx's Panel","Poder de salto atualizado.",5)
 	end)
 end)
 
@@ -1935,7 +1936,7 @@ FlySpeed_Button.MouseButton1Click:Connect(function()
 			Speed = 50
 		end
 		FlySpeed = tonumber(Speed)
-		SendNotify("ksx's Panel","Fly speed updated.",5)
+		SendNotify("ksx's Panel","Velocidade de voo atualizada.",5)
 	end)
 end)
 
@@ -1948,12 +1949,12 @@ end)
 
 SaveCheckpoint_Button.MouseButton1Click:Connect(function()
 	SavedCheckpoint = GetRoot(plr).Position
-	SendNotify("ksx's Panel","Checkpoint saved.",5)
+	SendNotify("ksx's Panel","Checkpoint salvo.",5)
 end)
 
 ClearCheckpoint_Button.MouseButton1Click:Connect(function()
 	SavedCheckpoint = nil
-	SendNotify("ksx's Panel","Checkpoint cleared.",5)
+	SendNotify("ksx's Panel","Checkpoint limpo.",5)
 end)
 
 local flying = true
@@ -2314,10 +2315,10 @@ WhitelistTarget_Button.MouseButton1Click:Connect(function()
 					table.remove(ScriptWhitelist, i)
 				end
 			end
-			SendNotify("[SYSTEM]:",TargetedPlayer.." removed from whitelist.",5)
+			SendNotify("[SYSTEM]:",TargetedPlayer.." removido da whitelist.",5)
 		else
 			table.insert(ScriptWhitelist, Players[TargetedPlayer].UserId)
-			SendNotify("[SYSTEM]:",TargetedPlayer.." added to whitelist.", 5)
+			SendNotify("[SYSTEM]:",TargetedPlayer.." adicionado à whitelist.", 5)
 		end
 	end
 end)
@@ -2902,7 +2903,7 @@ Day_Button.MouseButton1Click:Connect(function()
 	if Shaders_Button.Ticket_Asset.ImageColor3 == Color3.fromRGB(255,0,0) then
 		game:GetService("Lighting").ClockTime = 14
 	else
-		SendNotify("ksx's Panel","Please turn off shaders.",5)
+		SendNotify("ksx's Panel","Por favor, desligue os shaders.",5)
 	end
 end)
 
@@ -2956,7 +2957,7 @@ Players.PlayerRemoving:Connect(function(player)
 	pcall(function()
 		if player.Name == TargetedPlayer then
 			UpdateTarget(nil)
-			SendNotify("ksx's Panel","Targeted player left/rejoined.",5)
+			SendNotify("ksx's Panel","O jogador alvo saiu/entrou novamente.",5)
 		end
 	end)
 end)
@@ -2971,7 +2972,7 @@ plr.CharacterAdded:Connect(function(x)
 		ChangeToggleColor(Fly_Button)
 		flying = false
 		Fly_Pad.Visible = false
-		SendNotify("ksx's Panel","Fly was automatically disabled due to your character respawn",5)
+		SendNotify("ksx's Panel","O voo foi desativado automaticamente devido ao respawn do seu personagem.",5)
 	end
 end)
 
@@ -3002,12 +3003,12 @@ task.spawn(function()
 
 			if (plr.Name ~= original_name) or (plr.DisplayName ~= original_display) then
 				SysBroker:Destroy()
-				SendNotify("ksx's Panel","An unexpected error occurred, re-joining...")
+				SendNotify("ksx's Panel","Ocorreu um erro inesperado, reconectando...")
 				game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
 			end
 			if (date_1 ~= original_date) and (date_2 ~= original_date) and (date_3 ~= original_date) then
 				SysBroker:Destroy()
-				SendNotify("ksx's Panel","An unexpected error occurred, re-joining...")
+				SendNotify("ksx's Panel","Ocorreu um erro inesperado, reconectando...")
 				game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, plr)
 			end
 		end)
