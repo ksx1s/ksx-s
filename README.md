@@ -1,6 +1,6 @@
 # ksx's Panel
 
-Script para jogos de voz no Roblox
+Script para jogos do roblox
 
 ### Script
 ```lua
